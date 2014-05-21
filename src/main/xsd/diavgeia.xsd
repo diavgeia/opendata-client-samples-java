@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified"
+    targetNamespace="http://diavgeia.gov.gr/schema/v2" version="1.0"
+    xmlns:tns="http://diavgeia.gov.gr/schema/v2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="attachment" type="tns:attachmentType"/>
+    <xs:element name="bool" type="tns:boolType"/>
+    <xs:element name="decision" type="tns:decisionType"/>
+    <xs:element name="decisionSearchResult" type="tns:decisionsType"/>
+    <xs:element name="decisionType" type="tns:decisionTypeType"/>
+    <xs:element name="decisionTypeDetails" type="tns:decisionTypeDetailsType"/>
+    <xs:element name="decisionTypes" type="tns:decisionTypesType"/>
+    <xs:element name="dictionaries" type="tns:dictionariesType"/>
+    <xs:element name="dictionary" type="tns:dictionaryType"/>
+    <xs:element name="dictionaryItems" type="tns:dictionaryItemsType"/>
+    <xs:element name="extraField" type="tns:extraFieldType"/>
+    <xs:element name="extraFieldValue" type="tns:extraFieldValueType"/>
+    <xs:element name="info" type="tns:infoType"/>
+    <xs:element name="int" type="tns:intType"/>
+    <xs:element name="item" type="tns:dictionaryItemType"/>
+    <xs:element name="list" type="tns:listType"/>
+    <xs:element name="num" type="tns:numType"/>
+    <xs:element name="obj" type="tns:objType"/>
+    <xs:element name="organization" type="tns:organizationType"/>
+    <xs:element name="organizationDetails" type="tns:organizationDetailsType"/>
+    <xs:element name="organizations" type="tns:organizationsType"/>
+    <xs:element name="positions" type="tns:positionsType"/>
+    <xs:element name="searchTerms" type="tns:searchTermsType"/>
+    <xs:element name="signer" type="tns:signerType"/>
+    <xs:element name="signers" type="tns:signersType"/>
+    <xs:element name="str" type="tns:strType"/>
+    <xs:element name="unit" type="tns:unitType"/>
+    <xs:element name="units" type="tns:unitsType"/>
+    <xs:complexType name="infoType">
+        <xs:sequence>
+            <xs:element name="actualSize" type="xs:int"/>
+            <xs:element minOccurs="0" name="order" type="xs:string"/>
+            <xs:element name="page" type="xs:int"/>
+            <xs:element minOccurs="0" name="query" type="xs:string"/>
+            <xs:element name="size" type="xs:int"/>
+            <xs:element name="total" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="unitsType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:unit"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="unitType">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="uid" type="xs:string"/>
+            <xs:element minOccurs="0" name="label" type="xs:string"/>
+            <xs:element minOccurs="0" name="abbreviation" type="xs:string"/>
+            <xs:element minOccurs="0" name="category" type="xs:string"/>
+            <xs:element minOccurs="0" name="unitDomains">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0"
+                            name="unitDomain" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="parentId" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="signerType">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="uid" type="xs:string"/>
+            <xs:element minOccurs="0" name="firstName" type="xs:string"/>
+            <xs:element minOccurs="0" name="lastName" type="xs:string"/>
+            <xs:element name="active" type="xs:boolean"/>
+            <xs:element minOccurs="0" name="organizationId" type="xs:string"/>
+            <xs:element minOccurs="0" name="positionId" type="xs:string"/>
+            <xs:element minOccurs="0" name="positionLabel" type="xs:string"/>
+            <xs:element name="hasOrganizationSignRights" type="xs:boolean"/>
+            <xs:element minOccurs="0" name="unitIds">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0"
+                            name="unitId" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="attachmentType">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="id" type="xs:string"/>
+            <xs:element minOccurs="0" name="description" type="xs:string"/>
+            <xs:element minOccurs="0" name="filename" type="xs:string"/>
+            <xs:element minOccurs="0" name="mimeType" type="xs:string"/>
+            <xs:element minOccurs="0" name="checksum" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="boolType">
+        <xs:complexContent>
+            <xs:extension base="tns:extraFieldValueType">
+                <xs:sequence/>
+                <xs:attribute name="value" type="xs:boolean"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="extraFieldValueType">
+        <xs:sequence/>
+        <xs:attribute name="name" type="xs:string"/>
+    </xs:complexType>
+    <xs:complexType name="intType">
+        <xs:complexContent>
+            <xs:extension base="tns:extraFieldValueType">
+                <xs:sequence/>
+                <xs:attribute name="value" type="xs:int"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="numType">
+        <xs:complexContent>
+            <xs:extension base="tns:extraFieldValueType">
+                <xs:sequence/>
+                <xs:attribute name="value" type="xs:double"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="strType">
+        <xs:complexContent>
+            <xs:extension base="tns:extraFieldValueType">
+                <xs:sequence/>
+                <xs:attribute name="value" type="xs:string"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="objType">
+        <xs:complexContent>
+            <xs:extension base="tns:extraFieldValueType">
+                <xs:sequence>
+                    <xs:choice maxOccurs="unbounded" minOccurs="0">
+                        <xs:element ref="tns:extraFieldValue"/>
+                        <xs:element ref="tns:bool"/>
+                        <xs:element ref="tns:int"/>
+                        <xs:element ref="tns:num"/>
+                        <xs:element ref="tns:str"/>
+                        <xs:element ref="tns:obj"/>
+                        <xs:element ref="tns:list"/>
+                    </xs:choice>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="listType">
+        <xs:complexContent>
+            <xs:extension base="tns:extraFieldValueType">
+                <xs:sequence>
+                    <xs:choice maxOccurs="unbounded" minOccurs="0">
+                        <xs:element ref="tns:extraFieldValue"/>
+                        <xs:element ref="tns:bool"/>
+                        <xs:element ref="tns:int"/>
+                        <xs:element ref="tns:num"/>
+                        <xs:element ref="tns:str"/>
+                        <xs:element ref="tns:obj"/>
+                        <xs:element ref="tns:list"/>
+                    </xs:choice>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="decisionType">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ada" type="xs:string"/>
+            <xs:element minOccurs="0" name="subject" type="xs:string"/>
+            <xs:element minOccurs="0" name="protocolNumber" type="xs:string"/>
+            <xs:element minOccurs="0" name="status" type="xs:string"/>
+            <xs:element minOccurs="0" name="versionId" type="xs:string"/>
+            <xs:element minOccurs="0" name="decisionTypeId" type="xs:string"/>
+            <xs:element minOccurs="0" name="issueDate" type="xs:date"/>
+            <xs:element minOccurs="0" name="organizationId" type="xs:string"/>
+            <xs:element minOccurs="0" name="unitIds">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0"
+                            name="unitId" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="signerIds">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0"
+                            name="signerId" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="thematicCategoryIds">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0"
+                            name="thematicCategoryId" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="submissionTimestamp" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="extraFieldValues">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:choice maxOccurs="unbounded" minOccurs="0">
+                            <xs:element ref="tns:extraFieldValue"/>
+                            <xs:element ref="tns:bool"/>
+                            <xs:element ref="tns:int"/>
+                            <xs:element ref="tns:num"/>
+                            <xs:element ref="tns:str"/>
+                            <xs:element ref="tns:obj"/>
+                            <xs:element ref="tns:list"/>
+                        </xs:choice>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="attachments">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:attachment"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="url" type="xs:string"/>
+            <xs:element minOccurs="0" name="documentUrl" type="xs:string"/>
+            <xs:element minOccurs="0" name="documentChecksum" type="xs:string"/>
+            <xs:element minOccurs="0" name="privateData" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="decisionsType">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="decisions">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:decision"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" ref="tns:info"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="decisionTypesType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:decisionType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="decisionTypeType">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="uid" type="xs:string"/>
+            <xs:element minOccurs="0" name="label" type="xs:string"/>
+            <xs:element minOccurs="0" name="parent" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="decisionTypeDetailsType">
+        <xs:complexContent>
+            <xs:extension base="tns:decisionTypeType">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="extraFields">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element maxOccurs="unbounded"
+                                    minOccurs="0" ref="tns:extraField"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="extraFieldType">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="uid" type="xs:string"/>
+            <xs:element minOccurs="0" name="label" type="xs:string"/>
+            <xs:element minOccurs="0" name="help" type="xs:string"/>
+            <xs:element minOccurs="0" name="type" type="xs:string"/>
+            <xs:element minOccurs="0" name="validation" type="xs:string"/>
+            <xs:element name="required" type="xs:boolean"/>
+            <xs:element name="multiple" type="xs:boolean"/>
+            <xs:element name="maxLength" type="xs:int"/>
+            <xs:element minOccurs="0" name="dictionary" type="xs:string"/>
+            <xs:element minOccurs="0" name="searchTerm" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0"
+                name="relAdaDecisionTypes" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0"
+                name="relAdaConstrainedInOrganization" type="xs:boolean"/>
+            <xs:element minOccurs="0" name="nestedFields">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:extraField"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="positionsType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0"
+                name="position" type="tns:positionType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="positionType">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="label" type="xs:string"/>
+            <xs:element minOccurs="0" name="uid" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="dictionariesType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:dictionary"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="dictionaryType">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="label" type="xs:string"/>
+            <xs:element minOccurs="0" name="uid" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="dictionaryItemsType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:item"/>
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string"/>
+    </xs:complexType>
+    <xs:complexType name="dictionaryItemType">
+        <xs:sequence/>
+        <xs:attribute name="uid" type="xs:string"/>
+        <xs:attribute name="label" type="xs:string"/>
+        <xs:attribute name="parent" type="xs:string"/>
+    </xs:complexType>
+    <xs:complexType name="searchTermsType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0"
+                name="searchTerm" type="tns:searchTermType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="searchTermType">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="label" type="xs:string"/>
+            <xs:element minOccurs="0" name="term" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="signersType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:signer"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="signerDetails">
+        <xs:sequence/>
+    </xs:complexType>
+    <xs:complexType name="organizationsType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:organization"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="organizationType">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="uid" type="xs:string"/>
+            <xs:element minOccurs="0" name="label" type="xs:string"/>
+            <xs:element minOccurs="0" name="abbreviation" type="xs:string"/>
+            <xs:element minOccurs="0" name="latinName" type="xs:string"/>
+            <xs:element minOccurs="0" name="status" type="xs:string"/>
+            <xs:element minOccurs="0" name="category" type="xs:string"/>
+            <xs:element minOccurs="0" name="vatNumber" type="xs:string"/>
+            <xs:element minOccurs="0" name="fekNumber" type="xs:string"/>
+            <xs:element minOccurs="0" name="fekIssue" type="xs:string"/>
+            <xs:element minOccurs="0" name="fekYear" type="xs:string"/>
+            <xs:element minOccurs="0" name="odeManagerEmail" type="xs:string"/>
+            <xs:element minOccurs="0" name="website" type="xs:string"/>
+            <xs:element minOccurs="0" name="supervisorId" type="xs:string"/>
+            <xs:element minOccurs="0" name="supervisorLabel" type="xs:string"/>
+            <xs:element minOccurs="0" name="organizationDomains">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0"
+                            name="organizationDomain" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="organizationDetailsType">
+        <xs:complexContent>
+            <xs:extension base="tns:organizationType">
+                <xs:sequence>
+                    <xs:element minOccurs="0" ref="tns:units"/>
+                    <xs:element minOccurs="0" ref="tns:signers"/>
+                    <xs:element minOccurs="0" ref="tns:positions"/>
+                    <xs:element minOccurs="0" name="supervisedOrganizations">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element maxOccurs="unbounded"
+                                    minOccurs="0" ref="tns:organization"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

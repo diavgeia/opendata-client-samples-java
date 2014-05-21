@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bindings version="2.1" xmlns="http://java.sun.com/xml/ns/jaxb" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <bindings  schemaLocation="diavgeia.xsd">
+    <schemaBindings>
+      <package name="gr.gov.diavgeia.opendata.xml"/>
+    </schemaBindings>
+    <bindings node="//xs:complexType[@name='organizationType']">
+      <class name="Organization"/>
+    </bindings>
+    <bindings node="//xs:complexType[@name='organizationDetailsType']">
+      <class name="OrganizationDetails"/>
+    </bindings>
+    <bindings node="//xs:complexType[@name='unitType']">
+      <class name="Unit"/>
+    </bindings>
+    <bindings node="//xs:complexType[@name='decisionTypeDetailsType']">
+      <class name="DecisionTypeDetails"/>
+    </bindings>
+    <bindings node="//xs:complexType[@name='extraFieldType']">
+      <class name="ExtraField"/>
+    </bindings>
+    <bindings node="//xs:complexType[@name='decisionsType']">
+      <class name="DecisionsSearchResult"/>
+    </bindings>
+    <bindings node="//xs:complexType[@name='signerType']">
+      <class name="Signer"/>
+    </bindings>
+    <bindings node="//xs:complexType[@name='decisionType']">
+      <class name="Decision"/>
+    </bindings>
+    <bindings node="//xs:complexType[@name='dictionariesType']">
+      <class name="Dictionaries"/>
+    </bindings>
+    <bindings node="//xs:complexType[@name='searchTermsType']">
+      <class name="SearchTerms"/>
+    </bindings>
+    <bindings node="//xs:complexType[@name='signersType']">
+      <class name="Signers"/>
+    </bindings>
+    <bindings node="//xs:complexType[@name='decisionTypeType']">
+      <class name="DecisionType"/>
+    </bindings>
+    <bindings node="//xs:complexType[@name='infoType']">
+      <class name="Info"/>
+    </bindings>
+    <bindings node="//xs:complexType[@name='decisionTypesType']">
+      <class name="DecisionTypes"/>
+    </bindings>
+    <bindings node="//xs:complexType[@name='dictionaryItemsType']">
+      <class name="DictionaryItems"/>
+    </bindings>
+    <bindings node="//xs:complexType[@name='intType']">
+      <class name="Int"/>
+    </bindings>
+    <bindings node="//xs:complexType[@name='organizationsType']">
+      <class name="Organizations"/>
+    </bindings>
+    <bindings node="//xs:complexType[@name='listType']">
+      <class name="List"/>
+    </bindings>
+    <bindings node="//xs:complexType[@name='dictionaryType']">
+      <class name="Dictionary"/>
+    </bindings>
+    <bindings node="//xs:complexType[@name='attachmentType']">
+      <class name="Attachment"/>
+    </bindings>
+    <bindings node="//xs:complexType[@name='unitsType']">
+      <class name="Units"/>
+    </bindings>
+    <bindings node="//xs:complexType[@name='positionsType']">
+      <class name="Positions"/>
+    </bindings>
+    <bindings node="//xs:complexType[@name='numType']">
+      <class name="Num"/>
+    </bindings>
+    <bindings node="//xs:complexType[@name='strType']">
+      <class name="Str"/>
+    </bindings>
+    <bindings node="//xs:complexType[@name='dictionaryItemType']">
+      <class name="DictionaryItem"/>
+    </bindings>
+    <bindings node="//xs:complexType[@name='objType']">
+      <class name="Obj"/>
+    </bindings>
+    <bindings node="//xs:complexType[@name='boolType']">
+      <class name="Bool"/>
+    </bindings>
+    <bindings node="//xs:complexType[@name='extraFieldValueType']">
+      <class name="ExtraFieldValue"/>
+    </bindings>
+    <bindings node="//xs:complexType[@name='positionType']">
+      <class name="Position"/>
+    </bindings>
+    <bindings node="//xs:complexType[@name='signerDetails']">
+      <class name="SignerDetails"/>
+    </bindings>
+    <bindings node="//xs:complexType[@name='searchTermType']">
+      <class name="SearchTerm"/>
+    </bindings>
+  </bindings>
+</bindings>
+
