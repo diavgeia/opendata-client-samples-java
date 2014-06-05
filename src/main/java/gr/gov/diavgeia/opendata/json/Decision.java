@@ -26,6 +26,7 @@ public class Decision {
     private String url;
     private String documentUrl;
     private String documentChecksum;
+    private String correctedVersionId;
     private List<Attachment> attachments;
     
     public String getProtocolNumber() {
@@ -170,5 +171,13 @@ public class Decision {
     
     public void setAttachments(List<Attachment> attachments) {
         this.attachments = attachments;
+    }
+
+    public String getCorrectedVersionId() {
+        return correctedVersionId;
+    }
+
+    public void setCorrectedVersionId(String correctedVersionId) {
+        this.correctedVersionId = correctedVersionId;
     }
 }

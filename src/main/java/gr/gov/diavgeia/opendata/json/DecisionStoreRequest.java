@@ -20,6 +20,7 @@ public class DecisionStoreRequest {
     private Map<String, ? extends Object> extraFieldValues;
     private boolean privateData;
     private boolean publish;
+    private boolean correctedCopy;
     private String documentChecksum;
     private boolean removeDecisionDocument;
     private AttachmentStoreRequest attachments;
@@ -111,6 +112,14 @@ public class DecisionStoreRequest {
     
     public void setPublish(boolean publish) {
         this.publish = publish;
+    }
+
+    public boolean isCorrectedCopy() {
+        return correctedCopy;
+    }
+
+    public void setCorrectedCopy(boolean correctedCopy) {
+        this.correctedCopy = correctedCopy;
     }
     
     public String getDocumentChecksum() {

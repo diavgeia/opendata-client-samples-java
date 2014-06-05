@@ -41,7 +41,7 @@ public class PublishDecisionWithJsonString {
         if (conf.isAuthenticationEnabled()) {
             post.addCredentials(conf.getUsername(), conf.getPassword());
         }
-        post.addCredentials("30_test_api_user", "ApiUser30@Test");
+        // post.addCredentials("10599_api", "User@10599");
         post.addHeader("Accept", "application/json");
         
         

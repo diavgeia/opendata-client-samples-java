@@ -42,9 +42,9 @@ public class PublishDecisionWithObject {
         decision.setDecisionTypeId("Β.1.3"); // ΑΝΑΛΗΨΗ ΥΠΟΧΡΕΩΣΗΣ
         decision.setThematicCategoryIds(asList("20")); // ΟΙΚΟΝΟΜΙΚΕΣ ΚΑΙ ΕΜΠΟΡΙΚΕΣ ΣΥΝΑΛΛΑΓΕΣ
 
-        decision.setOrganizationId("30");
-        decision.setUnitIds(asList("10256"));
-        decision.setSignerIds(asList("10352"));
+        decision.setOrganizationId("10599");
+        decision.setUnitIds(asList("10602"));
+        decision.setSignerIds(asList("10911"));
 
         decision.setExtraFieldValues(createMap(
             "financialYear", 2014,
@@ -52,10 +52,10 @@ public class PublishDecisionWithObject {
             "entryNumber", entryNumber,
             "partialead", false,
             "recalledExpenseDecision", false,
-                "amountWithVAT", createMap(
+            "amountWithVAT", createMap(
                         "amount", 150,
                 "currency", "EUR"
-                ),
+            ),
                 "amountWithKae", asList(
                         createMap("kae", "1234", "amountWithVAT", 100),
                         createMap("kae", "4321", "amountWithVAT", 50)
@@ -71,7 +71,7 @@ public class PublishDecisionWithObject {
 
     public static void main(String[] args) throws Exception {
         Configuration conf = new Configuration();
-
+        
         // Prepare metadata and decision file
         DecisionStoreRequest decision = createDecisionStoreRequest();
         byte[] pdfContent;
@@ -84,7 +84,7 @@ public class PublishDecisionWithObject {
         if (conf.isAuthenticationEnabled()) {
             post.addCredentials(conf.getUsername(), conf.getPassword());
         }
-        // post.addCredentials("30_test_api_user", "ApiUser30@Test");
+        // post.addCredentials("10599_api", "User@10599");
         post.addHeader("Accept", "application/json");
 
         String jsonString = JsonUtil.toString(decision);

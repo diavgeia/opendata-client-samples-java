@@ -222,6 +222,7 @@
             <xs:element minOccurs="0" name="documentUrl" type="xs:string"/>
             <xs:element minOccurs="0" name="documentChecksum" type="xs:string"/>
             <xs:element minOccurs="0" name="privateData" type="xs:boolean"/>
+            <xs:element minOccurs="0" name="correctedVersionId" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="decisionsType">
