@@ -17,6 +17,7 @@ public class ExtraField {
     private int maxLength;
     private String dictionary;
     private String searchTerm;
+    private List<String> fixedValueList;
     private List<String> relAdaDecisionTypes;
     private Boolean relAdaConstrainedInOrganization;
     private List<ExtraField> nestedFields;
@@ -123,5 +124,13 @@ public class ExtraField {
 
     public void setNestedFields(List<ExtraField> nestedFields) {
         this.nestedFields = nestedFields;
+    }
+
+    public List<String> getFixedValueList() {
+        return fixedValueList;
+    }
+
+    public void setFixedValueList(List<String> fixedValueList) {
+        this.fixedValueList = fixedValueList;
     }
 }

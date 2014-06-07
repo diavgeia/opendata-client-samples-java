@@ -277,10 +277,24 @@
             <xs:element name="maxLength" type="xs:int"/>
             <xs:element minOccurs="0" name="dictionary" type="xs:string"/>
             <xs:element minOccurs="0" name="searchTerm" type="xs:string"/>
-            <xs:element maxOccurs="unbounded" minOccurs="0"
-                name="relAdaDecisionTypes" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="relAdaDecisionTypes">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0"
+                            name="relAdaDecisionType" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
             <xs:element minOccurs="0"
                 name="relAdaConstrainedInOrganization" type="xs:boolean"/>
+            <xs:element minOccurs="0" name="fixedValueList">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0"
+                            name="fixedValue" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
             <xs:element minOccurs="0" name="nestedFields">
                 <xs:complexType>
                     <xs:sequence>
