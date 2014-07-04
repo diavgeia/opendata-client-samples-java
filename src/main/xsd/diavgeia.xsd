@@ -247,6 +247,7 @@
             <xs:element minOccurs="0" name="uid" type="xs:string"/>
             <xs:element minOccurs="0" name="label" type="xs:string"/>
             <xs:element minOccurs="0" name="parent" type="xs:string"/>
+            <xs:element minOccurs="0" name="allowedInDecisions" type="xs:boolean"/>
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="decisionTypeDetailsType">

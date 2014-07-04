@@ -8,6 +8,7 @@ public class DecisionType {
     private String uid;
     private String label;
     private String parent;
+    private Boolean allowedInDecisions;
 
     public String getUid() {
         return uid;
@@ -31,5 +32,13 @@ public class DecisionType {
 
     public void setParent(String parent) {
         this.parent = parent;
+    }
+
+    public Boolean isAllowedInDecisions() {
+        return allowedInDecisions;
+    }
+
+    public void setAllowedInDecisions(Boolean allowedInDecisions) {
+        this.allowedInDecisions = allowedInDecisions;
     }
 }
