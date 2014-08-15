@@ -6,6 +6,7 @@
     <xs:element name="bool" type="tns:boolType"/>
     <xs:element name="decision" type="tns:decisionType"/>
     <xs:element name="decisionSearchResult" type="tns:decisionsType"/>
+    <xs:element name="decisionVersionLog" type="tns:decisionVersionLogType"/>
     <xs:element name="decisionType" type="tns:decisionTypeType"/>
     <xs:element name="decisionTypeDetails" type="tns:decisionTypeDetailsType"/>
     <xs:element name="decisionTypes" type="tns:decisionTypesType"/>
@@ -69,17 +70,22 @@
             <xs:element minOccurs="0" name="lastName" type="xs:string"/>
             <xs:element name="active" type="xs:boolean"/>
             <xs:element minOccurs="0" name="organizationId" type="xs:string"/>
-            <xs:element minOccurs="0" name="positionId" type="xs:string"/>
-            <xs:element minOccurs="0" name="positionLabel" type="xs:string"/>
             <xs:element name="hasOrganizationSignRights" type="xs:boolean"/>
-            <xs:element minOccurs="0" name="unitIds">
+            <xs:element minOccurs="0" name="units">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element maxOccurs="unbounded" minOccurs="0"
-                            name="unitId" type="xs:string"/>
+                            name="unit" type="tns:signerUnitType"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="signerUnitType">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="positionId" type="xs:string"/>
+            <xs:element minOccurs="0" name="positionLabel" type="xs:string"/>
+            <xs:element minOccurs="0" name="uid" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="attachmentType">
@@ -409,5 +415,29 @@
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="decisionVersionLogEntryType">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="versionId" type="xs:string"/>
+            <xs:element minOccurs="0" name="creator" type="xs:string"/>
+            <xs:element minOccurs="0" name="versionTimestamp" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="description" type="xs:string"/>
+            <xs:element minOccurs="0" name="status" type="xs:string"/>
+            <xs:element minOccurs="0" name="correctedVersionId" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="decisionVersionLogType">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="versions">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0"
+                            name="version" type="tns:decisionVersionLogEntryType"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="ada" type="xs:string"/>
+            <xs:element minOccurs="0" name="organizationId" type="xs:string"/>
+        </xs:sequence>
     </xs:complexType>
 </xs:schema>

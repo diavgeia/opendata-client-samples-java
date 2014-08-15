@@ -10,6 +10,7 @@ import gr.gov.diavgeia.opendata.samples.Configuration;
 import gr.gov.diavgeia.opendata.json.Organization;
 import gr.gov.diavgeia.opendata.json.OrganizationDetails;
 import gr.gov.diavgeia.opendata.json.Signer;
+import gr.gov.diavgeia.opendata.json.Signer.SignerUnit;
 import gr.gov.diavgeia.opendata.json.Unit;
 import gr.gov.diavgeia.opendata.json.Position;
 import gr.gov.diavgeia.opendata.util.StringUtil;
@@ -41,8 +42,14 @@ public class GetOrganizationDetailsJson {
 
             System.out.println("\nOrganization signers:");
             for (Signer signer : org.getSigners()) {
-                System.out.println(String.format("%s: %s %s, %s", signer.getUid(),
-                        signer.getLastName(), signer.getFirstName(), signer.getPositionLabel()));
+                System.out.println(String.format("%s: %s %s", signer.getUid(),
+                        signer.getLastName(), signer.getFirstName()));
+                List<SignerUnit> signerUnits = signer.getUnits();
+                if (signerUnits != null) {
+                    for (SignerUnit unit : signerUnits) {
+                        System.out.println(String.format("Unit ID: %s, Position in unit: (%s, %s)", unit.getUid(), unit.getPositionId(), unit.getPositionLabel()));
+                    }
+                }
             }
 
             System.out.println("\nOrganization positions:");

@@ -17,13 +17,9 @@ public class Signer {
 
     private String organizationId;
 
-    private String positionId;
-
-    private String positionLabel;
-
     private boolean hasOrganizationSignRights;
 
-    private List<String> unitIds;
+    private List<SignerUnit> units;
 
     public String getUid() {
         return uid;
@@ -65,22 +61,6 @@ public class Signer {
         this.organizationId = organizationId;
     }
 
-    public String getPositionId() {
-        return positionId;
-    }
-
-    public void setPositionId(String positionId) {
-        this.positionId = positionId;
-    }
-
-    public String getPositionLabel() {
-        return positionLabel;
-    }
-
-    public void setPositionLabel(String positionLabel) {
-        this.positionLabel = positionLabel;
-    }
-
     public boolean isHasOrganizationSignRights() {
         return hasOrganizationSignRights;
     }
@@ -89,11 +69,41 @@ public class Signer {
         this.hasOrganizationSignRights = hasOrganizationSignRights;
     }
 
-    public List<String> getUnitIds() {
-        return unitIds;
+    public List<SignerUnit> getUnits() {
+        return units;
     }
 
-    public void setUnitIds(List<String> unitIds) {
-        this.unitIds = unitIds;
+    public void setUnits(List<SignerUnit> units) {
+        this.units = units;
+    }
+    
+    public static class SignerUnit {
+        private String uid;
+        private String positionId;
+        private String positionLabel;
+
+        public String getUid() {
+            return uid;
+        }
+
+        public void setUid(String uid) {
+            this.uid = uid;
+        }
+
+        public String getPositionId() {
+            return positionId;
+        }
+
+        public void setPositionId(String positionId) {
+            this.positionId = positionId;
+        }
+
+        public String getPositionLabel() {
+            return positionLabel;
+        }
+
+        public void setPositionLabel(String positionLabel) {
+            this.positionLabel = positionLabel;
+        }
     }
 }

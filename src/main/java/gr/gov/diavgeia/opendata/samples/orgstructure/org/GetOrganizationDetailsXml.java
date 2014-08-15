@@ -1,6 +1,7 @@
 package gr.gov.diavgeia.opendata.samples.orgstructure.org;
 
 import java.net.HttpURLConnection;
+import java.util.List;
 
 import gr.gov.diavgeia.opendata.http.IHttpRequestBuilder;
 import gr.gov.diavgeia.opendata.http.HttpRequests;
@@ -10,6 +11,7 @@ import gr.gov.diavgeia.opendata.xml.Organization;
 import gr.gov.diavgeia.opendata.xml.OrganizationDetails;
 import gr.gov.diavgeia.opendata.xml.OrganizationDetails.SupervisedOrganizations;
 import gr.gov.diavgeia.opendata.xml.Signer;
+import gr.gov.diavgeia.opendata.xml.SignerUnitType;
 import gr.gov.diavgeia.opendata.xml.Signers;
 import gr.gov.diavgeia.opendata.xml.Unit;
 import gr.gov.diavgeia.opendata.xml.Units;
@@ -45,8 +47,14 @@ public class GetOrganizationDetailsXml {
             System.out.println("\nOrganization signers:");
             Signers signers = org.getSigners();
             for (Signer signer: signers.getSigner()) {
-                System.out.println(String.format("%s: %s %s, %s", signer.getUid(),
-                    signer.getLastName(), signer.getFirstName(), signer.getPositionLabel()));
+                System.out.println(String.format("%s: %s %s", signer.getUid(),
+                    signer.getLastName(), signer.getFirstName()));
+                List<SignerUnitType> signerUnits = signer.getUnits().getUnit();
+                if (signerUnits != null) {
+                    for (SignerUnitType unit : signerUnits) {
+                        System.out.println(String.format("Unit ID: %s, Position in unit: (%s, %s)", unit.getUid(), unit.getPositionId(), unit.getPositionLabel()));
+                    }
+                }
             }
             
             System.out.println("\nOrganization positions:");

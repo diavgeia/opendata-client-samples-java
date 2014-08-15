@@ -97,6 +97,12 @@
     <bindings node="//xs:complexType[@name='searchTermType']">
       <class name="SearchTerm"/>
     </bindings>
+    <bindings node="//xs:complexType[@name='decisionVersionLogType']">
+      <class name="DecisionVersionLog"/>
+    </bindings>
+    <bindings node="//xs:complexType[@name='decisionVersionLogEntryType']">
+      <class name="DecisionVersionLogEntry"/>
+    </bindings>
   </bindings>
 </bindings>
 
