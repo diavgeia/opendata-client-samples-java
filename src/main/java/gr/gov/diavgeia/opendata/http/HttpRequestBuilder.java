@@ -6,11 +6,11 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.charset.Charset;
-import java.util.logging.Logger;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
+import java.util.logging.Logger;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
@@ -21,6 +21,7 @@ import org.apache.http.client.AuthCache;
 import org.apache.http.client.CredentialsProvider;
 import org.apache.http.client.protocol.HttpClientContext;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
+import org.apache.http.conn.ssl.SSLContexts;
 import org.apache.http.impl.auth.BasicScheme;
 import org.apache.http.impl.client.BasicAuthCache;
 import org.apache.http.impl.client.BasicCredentialsProvider;
@@ -155,8 +156,12 @@ public abstract class HttpRequestBuilder implements IHttpRequestBuilder {
 
     private void _prepareSSL(HttpClientBuilder clientBuilder) {
         try {
-            SSLContext sslContext = SSLContext.getInstance("SSL");
-
+            
+            // http://stackoverflow.com/questions/26429751/java-http-clients-and-poodle
+            SSLContext sslContext = SSLContexts.custom()
+                    .useTLS()
+                    .build();
+            
             sslContext.init(null, new TrustManager[]{TRUST_ALL_TRUST_MANAGER}, new SecureRandom());
             SSLConnectionSocketFactory sslConnectionSocketFactory = new SSLConnectionSocketFactory(sslContext,
                     verifyServer ? SSLConnectionSocketFactory.STRICT_HOSTNAME_VERIFIER : SSLConnectionSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);

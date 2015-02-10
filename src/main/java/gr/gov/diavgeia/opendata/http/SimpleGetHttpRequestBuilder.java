@@ -53,10 +53,10 @@ public class SimpleGetHttpRequestBuilder implements IHttpRequestBuilder {
         int status = httpConnection.getResponseCode();
         String message = httpConnection.getResponseMessage();
 
-        if (status == HttpURLConnection.HTTP_OK) {
-            return new HttpResponse(status, message, httpConnection.getInputStream());
+        if ((status == HttpURLConnection.HTTP_OK) || (status == HttpURLConnection.HTTP_MOVED_TEMP) || (status == HttpURLConnection.HTTP_MOVED_PERM)) {
+            return new HttpResponse(status, message, httpConnection.getInputStream(), HttpResponse.getHeadersFromUrlConnectionResponse(httpConnection));
         } else {
-            return new HttpResponse(status, message, httpConnection.getErrorStream());
+            return new HttpResponse(status, message, httpConnection.getErrorStream(), HttpResponse.getHeadersFromUrlConnectionResponse(httpConnection));
         }
     }
 

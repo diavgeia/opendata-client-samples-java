@@ -52,7 +52,7 @@ public class MultipartPostHttpRequestBuilder extends HttpRequestBuilder {
             bos.flush();
             bos.close();
             EntityUtils.consumeQuietly(httpEntity);
-            res = new HttpResponse(status.getStatusCode(), status.getReasonPhrase(), new ByteArrayInputStream(bos.toByteArray()));
+            res = new HttpResponse(status.getStatusCode(), status.getReasonPhrase(), new ByteArrayInputStream(bos.toByteArray()), HttpResponse.getHeadersFromResponse(response));
         }
         return res;
     }

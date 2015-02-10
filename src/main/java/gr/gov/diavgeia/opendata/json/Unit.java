@@ -1,5 +1,6 @@
 package gr.gov.diavgeia.opendata.json;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -14,6 +15,12 @@ public class Unit {
     private String label;
 
     private String abbreviation;
+    
+    private boolean active;
+    
+    private Date activeFrom;
+    
+    private Date activeUntil;
 
     private String category;
 
@@ -57,5 +64,29 @@ public class Unit {
 
     public void setUnitDomains(List<String> unitDomains) {
         this.unitDomains = unitDomains;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public Date getActiveFrom() {
+        return activeFrom;
+    }
+
+    public void setActiveFrom(Date activeFrom) {
+        this.activeFrom = activeFrom;
+    }
+
+    public Date getActiveUntil() {
+        return activeUntil;
+    }
+
+    public void setActiveUntil(Date activeUntil) {
+        this.activeUntil = activeUntil;
     }
 }

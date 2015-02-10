@@ -1,5 +1,6 @@
 package gr.gov.diavgeia.opendata.json;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -12,8 +13,12 @@ public class Signer {
     private String firstName;
 
     private String lastName;
-
+    
     private boolean active;
+    
+    private Date activeFrom;
+    
+    private Date activeUntil;
 
     private String organizationId;
 
@@ -51,6 +56,22 @@ public class Signer {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public Date getActiveFrom() {
+        return activeFrom;
+    }
+
+    public void setActiveFrom(Date activeFrom) {
+        this.activeFrom = activeFrom;
+    }
+
+    public Date getActiveUntil() {
+        return activeUntil;
+    }
+
+    public void setActiveUntil(Date activeUntil) {
+        this.activeUntil = activeUntil;
     }
 
     public String getOrganizationId() {

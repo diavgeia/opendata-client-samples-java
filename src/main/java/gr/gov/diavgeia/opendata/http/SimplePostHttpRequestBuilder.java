@@ -47,7 +47,7 @@ public class SimplePostHttpRequestBuilder extends HttpRequestBuilder {
         
         try (CloseableHttpResponse response = client.execute(super.getHost(), this.httpPost, clientContext)) {
             StatusLine status = response.getStatusLine();
-            res = new HttpResponse(status.getStatusCode(), status.getReasonPhrase(), response.getEntity().getContent());
+            res = new HttpResponse(status.getStatusCode(), status.getReasonPhrase(), response.getEntity().getContent(), HttpResponse.getHeadersFromResponse(response));
         }
         return res;
     }

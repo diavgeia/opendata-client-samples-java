@@ -51,6 +51,9 @@
             <xs:element minOccurs="0" name="uid" type="xs:string"/>
             <xs:element minOccurs="0" name="label" type="xs:string"/>
             <xs:element minOccurs="0" name="abbreviation" type="xs:string"/>
+            <xs:element minOccurs="0" name="active" type="xs:boolean"/>
+            <xs:element minOccurs="0" name="activeFrom" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="activeUntil" type="xs:dateTime"/>
             <xs:element minOccurs="0" name="category" type="xs:string"/>
             <xs:element minOccurs="0" name="unitDomains">
                 <xs:complexType>
@@ -69,6 +72,8 @@
             <xs:element minOccurs="0" name="firstName" type="xs:string"/>
             <xs:element minOccurs="0" name="lastName" type="xs:string"/>
             <xs:element name="active" type="xs:boolean"/>
+            <xs:element minOccurs="0" name="activeFrom" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="activeUntil" type="xs:dateTime"/>
             <xs:element minOccurs="0" name="organizationId" type="xs:string"/>
             <xs:element name="hasOrganizationSignRights" type="xs:boolean"/>
             <xs:element minOccurs="0" name="units">
