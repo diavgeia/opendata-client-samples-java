@@ -1,0 +1,50 @@
+{
+  "publish": true,
+  "signerIds": [
+    "113214"
+  ],
+  "unitIds": [
+    "91408"
+  ],
+  "decisionTypeId": "Β.1.3",
+  "subject": "ΑΠΟΦΑΣΗ ΑΝΑΛΗΨΗΣ ΥΠΟΧΡΕΩΣΗΣ",
+  "thematicCategoryIds": [
+    "20"
+  ],
+  "protocolNumber": "2014/1/001",
+  "issueDate": "2014-06-20T00:00:00.000Z",
+  "organizationId": "50707",
+  "extraFieldValues": {
+    "financialYear": 2014,
+    "budgettype": "Τακτικός Προϋπολογισμός",
+    "entryNumber": "1000",
+    "partialead": false,
+    "recalledExpenseDecision": false,
+    "amountWithVAT": {
+      "amount": 150,
+      "currency": "EUR"
+    },
+    "amountWithKae": [
+      {
+        "kae": "1234",
+        "amountWithVAT": 100
+      },
+      {
+        "kae": "4321",
+        "amountWithVAT": 50
+      }
+    ],
+    "relatedDecisions": [],
+    "documentType": "ΠΡΑΞΗ"
+  },
+  "attachments": {
+      "attach": [
+          {
+              "description": "Test one",
+              "filename": "test1.pdf",
+              "mimeType": "application/pdf",
+              "contentBase64": "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V2lkdGggMjc4Ci9DaGFyU2V0KC9vbmUvRS9TL1Qvc3BhY2UpL0ZvbnRGaWxlMyAxMiAwIFI+PgplbmRvYmoKMiAwIG9iago8PC9Qcm9kdWNlcihHUEwgR2hvc3RzY3JpcHQgOC4xNSkKL0NyZWF0aW9uRGF0ZShEOjIwMTQwNTIxMTYzNjI4KQovTW9kRGF0ZShEOjIwMTQwNTIxMTYzNjI4KQovVGl0bGUoXChNaWNyb3NvZnQgV29yZCAtIFxcMjcwXFwzNDNcXDM0M1xcMzYxXFwzNDFcXDM2NlxcMzU3MVwpKQovQ3JlYXRvcihQU2NyaXB0NS5kbGwgVmVyc2lvbiA1LjIuMikKL0F1dGhvcihrdHpvbmFzKT4+ZW5kb2JqCnhyZWYKMCAxNAowMDAwMDAwMDAwIDY1NTM1IGYgCjAwMDAwMDA1MTMgMDAwMDAgbiAKMDAwMDAwMTg2MyAwMDAwMCBuIAowMDAwMDAwNDQ1IDAwMDAwIG4gCjAwMDAwMDAyODUgMDAwMDAgbiAKMDAwMDAwMDAxNSAwMDAwMCBuIAowMDAwMDAwMjY2IDAwMDAwIG4gCjAwMDAwMDA1NjEgMDAwMDAgbiAKMDAwMDAwMTYyNSAwMDAwMCBuIAowMDAwMDAxMzQ1IDAwMDAwIG4gCjAwMDAwMDA2MDIgMDAwMDAgbiAKMDAwMDAwMDYzMiAwMDAwMCBuIAowMDAwMDAwNjYyIDAwMDAwIG4gCjAwMDAwMDEzMjUgMDAwMDAgbiAKdHJhaWxlcgo8PCAvU2l6ZSAxNCAvUm9vdCAxIDAgUiAvSW5mbyAyIDAgUgovSUQgWyhUR5qJPU/8oLyObTlnUbqyKShUR5qJPU/8oLyObTlnUbqyKV0KPj4Kc3RhcnR4cmVmCjIwOTIKJSVFT0YK"
+          }
+      ]
+  }
+}
